@@ -3,7 +3,7 @@ import {Inject, Injectable, Renderer2} from "@angular/core";
 
 @Injectable(
 {
-	providedIn: 'root'
+	providedIn: "root"
 })
 
 export class LoadScriptService

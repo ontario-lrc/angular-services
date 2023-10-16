@@ -10,8 +10,11 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "load-script-service": [
-        "dist/load-script-service"
+      "api": [
+        "dist/api"
+      ],
+      "load-script": [
+        "dist/load-script"
       ],
       "mat-tab-change": [
         "dist/mat-tab-change"

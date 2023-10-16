@@ -1,5 +1,5 @@
 /*
- * Public API Surface of load-script-service
+ * Public API Surface of load-script
  */
 
 export * from "./lib/load-script.service";

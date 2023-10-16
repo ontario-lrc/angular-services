@@ -7,5 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0]
 The following angular services were added:
-- Load a .js script (load-script-service)
+- Load a .js script (load-script)
 - Detect when a mat-tab selection has been changed (mat-tab-change)
+- API service for get/post/put/delete

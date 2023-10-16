@@ -1,5 +1,5 @@
 {
-  "name": "load-script-service",
+  "name": "load-script",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^16.2.0",

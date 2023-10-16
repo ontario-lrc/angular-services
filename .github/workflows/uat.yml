@@ -28,7 +28,7 @@ jobs:
 
     - name: Build projects in library
       run: |
-        npm run build load-script-service --configruation=production
+        npm run build load-script --configruation=production
         npm run build mat-tab-change --configuration=production
 
     - name: Upload dist folder
@@ -36,7 +36,6 @@ jobs:
       with:
         name: distArtifact
         path: dist
-        error: Artifact is nonexistant
 
   release:
     needs: build
