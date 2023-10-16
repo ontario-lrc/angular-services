@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 
 export class ApiService
 {
-	private _httpClient: HttpClient;
+	protected _httpClient: HttpClient;
 
 	protected readonly applicationJsonHttpHeader: any =
 	{
