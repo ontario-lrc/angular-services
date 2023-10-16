@@ -28,6 +28,7 @@ jobs:
 
     - name: Build projects in library
       run: |
+        npm run build api --configruation=production
         npm run build load-script --configruation=production
         npm run build mat-tab-change --configuration=production
 
