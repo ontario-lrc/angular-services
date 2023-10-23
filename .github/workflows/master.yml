@@ -31,6 +31,7 @@ jobs:
         npm run build api --configruation=production
         npm run build load-script --configruation=production
         npm run build mat-tab-change --configuration=production
+        npm run build accordion-group --configuration=production
 
     - name: Upload dist folder
       uses: actions/upload-artifact@v3.1.3

@@ -101,6 +101,39 @@
           }
         }
       }
+    },
+    "accordion-group": {
+      "projectType": "library",
+      "root": "projects/accordion-group",
+      "sourceRoot": "projects/accordion-group/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/accordion-group/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/accordion-group/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/accordion-group/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/accordion-group/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

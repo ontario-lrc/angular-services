@@ -12,7 +12,22 @@ export class LoadScriptService
 
 	public loadScript(renderer: Renderer2, src: string): HTMLScriptElement
 	{
-		const script: HTMLScriptElement = renderer.createElement("script");
+		let script!: HTMLScriptElement;
+
+		Array.from(document.scripts).forEach((existingScript: HTMLScriptElement) =>
+		{
+			if(existingScript.src.includes(src))
+			{
+				script = existingScript;
+			}
+		});
+
+		if(script)
+		{
+			this.removeScript(renderer, script);
+		}
+		
+		script = renderer.createElement("script");
 
 		script.src = src;
 		script.async = true;

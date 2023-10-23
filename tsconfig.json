@@ -10,6 +10,9 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
+      "accordion-group": [
+        "dist/accordion-group"
+      ],
       "api": [
         "dist/api"
       ],
