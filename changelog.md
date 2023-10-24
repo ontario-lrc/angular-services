@@ -10,3 +10,4 @@ The following angular services were added:
 - Load a .js script (load-script)
 - Detect when a mat-tab selection has been changed (mat-tab-change)
 - API service for get/post/put/delete
+- Functionality for grouping of accordions (accordion-group)
