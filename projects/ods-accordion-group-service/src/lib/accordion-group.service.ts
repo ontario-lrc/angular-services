@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 	providedIn: "root"
 })
 
-export class AccordionGroupService
+export class OdsAccordionGroupService
 {
 	private _accordionsInGroup: HTMLButtonElement[] = [];
 
