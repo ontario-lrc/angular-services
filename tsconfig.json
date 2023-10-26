@@ -10,17 +10,17 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "accordion-group": [
-        "dist/accordion-group"
+      "ods-accordion-group-service": [
+        "dist/ods-accordion-group-service"
       ],
-      "api": [
-        "dist/api"
+      "api-service": [
+        "dist/api-service"
       ],
-      "load-script": [
-        "dist/load-script"
+      "load-script-service": [
+        "dist/load-script-service"
       ],
-      "mat-tab-change": [
-        "dist/mat-tab-change"
+      "mat-tab-change-service": [
+        "dist/mat-tab-change-service"
       ]
     },
     "noFallthroughCasesInSwitch": true,

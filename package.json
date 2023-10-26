@@ -1,6 +1,6 @@
 {
 	"name": "@ontario-lrc/angular-services",
-	"version": "1.0.0-beta.6",
+	"version": "1.0.0-beta.7",
 	"private": false,
 	"description": "A collection of reusable Anggular services, customized for the LRC's needs.  The goal is to provide developers with a centralized location for LRC Angular services to share, collaborate, and leverage reusable code, promoting code reusability and reducing development time and effort.",
 	"license": "Apache-2.0",

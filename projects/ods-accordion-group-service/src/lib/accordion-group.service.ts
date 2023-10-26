@@ -9,8 +9,6 @@ export class AccordionGroupService
 {
 	private _accordionsInGroup: HTMLButtonElement[] = [];
 
-	constructor(){}
-
 	set addToAccordionsInGroup(accordion: HTMLButtonElement)
 	{
 		this._accordionsInGroup.push(accordion);
