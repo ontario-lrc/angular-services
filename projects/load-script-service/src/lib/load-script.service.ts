@@ -1,5 +1,5 @@
 import {DOCUMENT} from "@angular/common";
-import {Inject, Injectable, Renderer2} from "@angular/core";
+import {Inject, Injectable, Injector, Renderer2} from "@angular/core";
 
 @Injectable(
 {
@@ -8,13 +8,18 @@ import {Inject, Injectable, Renderer2} from "@angular/core";
 
 export class LoadScriptService
 {
-	constructor(@Inject(DOCUMENT) private _document: Document){}
+	#document: Document;
+
+	constructor(private _injector: Injector)
+	{
+		this.#document = this._injector.get(DOCUMENT);
+	}
 
 	public loadScript(renderer: Renderer2, src: string): HTMLScriptElement
 	{
 		let script!: HTMLScriptElement;
 
-		Array.from(document.scripts).forEach((existingScript: HTMLScriptElement) =>
+		Array.from(this.#document.scripts).forEach((existingScript: HTMLScriptElement) =>
 		{
 			if(existingScript.src.includes(src))
 			{
@@ -26,7 +31,7 @@ export class LoadScriptService
 		{
 			this.removeScript(renderer, script);
 		}
-		
+
 		script = renderer.createElement("script");
 
 		script.src = src;
@@ -34,13 +39,13 @@ export class LoadScriptService
 		script.defer = true;
 		script.type = "text/javascript";
 
-		renderer.appendChild(this._document.body, script);
+		renderer.appendChild(this.#document.body, script);
 
 		return script;
 	}
 
 	public removeScript(renderer: Renderer2, script: HTMLScriptElement): void
 	{
-		renderer.removeChild(this._document.body, script);
+		renderer.removeChild(this.#document.body, script);
 	}
 }
