@@ -9,38 +9,66 @@ import {Observable} from "rxjs";
 
 export class ApiService
 {
-	protected _httpClient: HttpClient;
+	private static _httpClient: HttpClient;
+	private static _injector: Injector;
 
-	protected readonly applicationJsonHttpHeader: any =
+	protected static delete<T, U>(url: string, data?: U): Observable<T>
+	{
+		if(data)
+		{
+			const deleteConst: string = "DELETE";
+
+			return ApiService.httpClient.request<T>(deleteConst, url, {body: data});
+		}
+
+		return ApiService.httpClient.delete<T>(url);
+	}
+
+	protected static get httpClient(): HttpClient
+	{
+		if(!ApiService._httpClient)
+		{
+			ApiService.httpClient = ApiService.injector.get(HttpClient);
+		}
+
+		return ApiService._httpClient;
+	}
+
+	protected static get<T>(url: string): Observable<T>
+	{
+		return ApiService.httpClient.get<T>(url);
+	}
+
+	protected static get injector(): Injector
+	{
+		return ApiService._injector;
+	}
+
+	protected static post<T, U>(url: string, data: U, headers?: HttpHeaders): Observable<T>
+	{
+		return ApiService.httpClient.post<T>(url, data, headers ? {headers} : ApiService.applicationJsonHttpHeader);
+	}
+
+	protected static put<T, U>(url: string, data: U): Observable<T>
+	{
+		return ApiService.httpClient.put<T>(url, data);
+	}
+
+	protected static readonly applicationJsonHttpHeader: {headers: HttpHeaders} =
 	{
 		headers: new HttpHeaders(
-		{
-			"Content-Type": "application/json"
-		})		
+			{
+				"Content-Type": "application/json"
+			})
 	};
 
-	constructor(private _injector: Injector)
+	protected static set httpClient(httpClient: HttpClient)
 	{
-		this._httpClient = _injector.get(HttpClient);
+		ApiService._httpClient = httpClient;
 	}
 
-	get(url: string, headers?: any): Observable<any>
+	protected static set injector(injector: Injector)
 	{
-		return this._httpClient.get(url, headers);
-	}
-
-	post(url: string, data: any, headers?: any): Observable<any>
-	{
-		return this._httpClient.post(url, data, headers);
-	}
-
-	put(url: string, data: any, headers?: any): Observable<any>
-	{
-		return this._httpClient.put(url, data, headers);
-	}
-
-	delete(url: string, headers?: any): Observable<any>
-	{
-		return this._httpClient.delete(url, headers);
+		ApiService._injector = injector;
 	}
 }
